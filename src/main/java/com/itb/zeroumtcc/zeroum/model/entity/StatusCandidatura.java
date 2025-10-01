@@ -1,4 +1,4 @@
-package model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
-public class StatusCandidatura {
+public enum StatusCandidatura {
 }
