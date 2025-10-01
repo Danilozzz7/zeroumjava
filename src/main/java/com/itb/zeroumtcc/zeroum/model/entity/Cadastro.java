@@ -1,6 +1,4 @@
-package model.entity;
-
-import java.time.LocalDateTime;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
 public class Cadastro {
 

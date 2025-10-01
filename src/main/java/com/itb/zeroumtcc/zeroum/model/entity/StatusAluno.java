@@ -1,6 +1,7 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
 
-public enum StatusCandidatura {
+public enum StatusUsuario {
     ATIVO,
     INATIVO,
+    TROCARSENHA
 }

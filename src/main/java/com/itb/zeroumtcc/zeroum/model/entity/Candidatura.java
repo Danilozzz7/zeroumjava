@@ -1,60 +1,72 @@
-package model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
-package com.zeroum.estagios.model.entity;
+import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusCandidatura;
 
-import com.zeroum.estagios.model.entity.enums.StatusCandidatura;
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+@Entity
+@Table(name = "Candidatura")
 public class Candidatura {
-    public <candidatura> candidatura getId() {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // FK para Aluno
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "aluno_id", nullable = false, foreignKey = @ForeignKey(name = "fk_candidatura_aluno"))
+    private Aluno aluno;
+
+    // FK para Vaga
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "vaga_id", nullable = false, foreignKey = @ForeignKey(name = "fk_candidatura_vaga"))
+    private Vaga vaga;
+
+    @Column(name = "data_cadastro", nullable = false)
+    private LocalDateTime dataCadastro;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status_candidatura", length = 20, nullable = false)
+    private StatusCandidatura statusCandidatura;
+
+    // Getters and Setters
+    public Integer getId() {
+        return id;
     }
 
-    public void setId(Object id) {
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @Entity
-    @Table(name = "Candidatura")
-    public class Candidatura {
+    public Aluno getAluno() {
+        return aluno;
+    }
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
 
-        // FK para Aluno
-        @ManyToOne(optional = false, fetch = FetchType.LAZY)
-        @JoinColumn(name = "aluno_id", nullable = false,
-                foreignKey = @ForeignKey(name = "fk_candidatura_aluno"))
-        private Aluno aluno;
+    public Vaga getVaga() {
+        return vaga;
+    }
 
-        // FK para Vaga
-        @ManyToOne(optional = false, fetch = FetchType.LAZY)
-        @JoinColumn(name = "vaga_id", nullable = false,
-                foreignKey = @ForeignKey(name = "fk_candidatura_vaga"))
-        private Vaga vaga;
+    public void setVaga(Vaga vaga) {
+        this.vaga = vaga;
+    }
 
-        @Column(name = "data_cadastro", nullable = false)
-        private LocalDateTime dataCadastro;
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
 
-        @Enumerated(EnumType.STRING)
-        @Column(name = "status_candidatura", length = 20, nullable = false)
-        private StatusCandidatura statusCandidatura;
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
 
-        public Integer getId() { return id; }
-        public void setId(Integer id) { this.id = id; }
+    public StatusCandidatura getStatusCandidatura() {
+        return statusCandidatura;
+    }
 
-        public Aluno getAluno() { return aluno; }
-        public void setAluno(Aluno aluno) { this.aluno = aluno; }
-
-        public Vaga getVaga() { return vaga; }
-        public void setVaga(Vaga vaga) { this.vaga = vaga; }
-
-        public LocalDateTime getDataCadastro() { return dataCadastro; }
-        public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
-
-        public StatusCandidatura getStatusCandidatura() { return statusCandidatura; }
-        public void setStatusCandidatura(StatusCandidatura statusCandidatura) { this.statusCandidatura = statusCandidatura; }
+    public <StatusCandidatura> void setStatusCandidatura(StatusCandidatura statusCandidatura) {
+        this.statusCandidatura = statusCandidatura;
     }
 }

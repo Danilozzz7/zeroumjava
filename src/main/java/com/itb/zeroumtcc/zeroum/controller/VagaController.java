@@ -1,18 +1,18 @@
-package com.zeroum.estagios.controller;
+package com.itb.zeroumtcc.zeroum.controller;
 
-import com.zeroum.estagios.model.entity.Vaga;
-import com.zeroum.estagios.model.repository.VagaRepository;
+import com.itb.zeroumtcc.zeroum.model.entity.Vaga;
+import com.itb.zeroumtcc.zeroum.model.repository.VagaRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/vagas")
-public class VagaController<Vaga> {
+public class VagaController {
 
     private final VagaRepository repo;
 
@@ -27,8 +27,8 @@ public class VagaController<Vaga> {
 
     @GetMapping("/{id}")
     public ResponseEntity<Vaga> findById(@PathVariable Integer id) {
-        Optional<Vaga> v = repo.findById(id);
-        return v.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        Optional<Vaga> vaga = repo.findById(id);
+        return vaga.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
@@ -49,7 +49,9 @@ public class VagaController<Vaga> {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        if (!repo.existsById(id)) return ResponseEntity.notFound().build();
+        if (!repo.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
         repo.deleteById(id);
         return ResponseEntity.noContent().build();
     }

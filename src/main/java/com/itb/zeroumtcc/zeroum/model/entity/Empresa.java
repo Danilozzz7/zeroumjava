@@ -1,6 +1,4 @@
-package com.zeroum.estagios.model.entity;
-
-import com.zeroum.estagios.model.entity.enums.StatusEmpresa;
+package com.itb.zeroumtcc.zeroum.model.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -79,6 +77,4 @@ public class Empresa {
     public LocalDateTime getDataCadastro() { return dataCadastro; }
     public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
 
-    public <StatusEmpresa> StatusEmpresa getStatusEmpresa() { return statusEmpresa; }
-    public <StatusEmpresa> void setStatusEmpresa(StatusEmpresa statusEmpresa) { this.statusEmpresa = statusEmpresa; }
 }

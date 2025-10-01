@@ -1,6 +1,4 @@
-package model.entity;
-
-
+package com.itb.zeroumtcc.zeroum.model.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,7 +8,7 @@ import java.time.LocalDateTime;
         uniqueConstraints = {
                 @UniqueConstraint(name = "uk_aluno_rm", columnNames = "rm")
         })
-public class Aluno {
+public class Aluno<StatusAluno> {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,5 +74,4 @@ public class Aluno {
         public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
 
         public StatusAluno getStatusAluno() { return statusAluno; }
-        public void setStatusAluno(StatusAluno statusAluno) { this.statusAluno = statusAluno; }
 }

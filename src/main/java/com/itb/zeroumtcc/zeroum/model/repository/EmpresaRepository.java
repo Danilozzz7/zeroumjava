@@ -1,10 +1,10 @@
-package model.repository;
+package com.itb.zeroumtcc.zeroum.model.repository;
 
-public interface EmpresaRepository {
-    import com.zeroum.estagios.model.entity.Empresa;
+import com.itb.zeroumtcc.zeroum.model.entity.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-    @Repository
-    public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {}
+@Repository
+public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {
+
 }

@@ -1,4 +1,4 @@
-package com.zeroum.estagios.model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
 import jakarta.persistence.*;
 

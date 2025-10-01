@@ -1,9 +1,7 @@
-package model.repository;
-import model.entity.Candidatura;
-import java.util.List;
+package com.itb.zeroumtcc.zeroum.model.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
     @Repository
-    public interface CandidaturaRepository extends JpaRepository<Candidatura, Integer> {}
+    public interface CandidaturaRepository<Candidatura> extends JpaRepository<Candidatura, Integer> {}
 

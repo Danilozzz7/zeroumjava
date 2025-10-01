@@ -1,129 +1,135 @@
-package model.entity;
-
+package com.itb.zeroumtcc.zeroum.model.entity;
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
-
-public class Vaga {
-    VAGA
-
-package com.zeroum.estagios.model.entity;
-
 import com.zeroum.estagios.model.entity.enums.StatusVaga;
 
-import jakarta.persistence.*;
+@Entity
+@Table(name = "Vaga")
+public class Vaga {
 
-import LocalDateTime;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Entity
+    // FK para Empresa
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "empresa_id", nullable = false, foreignKey = @ForeignKey(name = "fk_vaga_empresa"))
+    private Empresa empresa;
 
-    @Table(name = "Vaga")
+    @Column(length = 100, nullable = false)
+    private String nome;
 
-    public class Vaga {
+    @Column(length = 500, nullable = false)
+    private String descricao;
 
-        @Id
+    @Column(length = 100)
+    private String cidade;
 
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 100)
+    private String bairro;
 
-        private Integer id;
+    @Column(length = 100)
+    private String cargaHoraria;
 
-        // FK para Empresa
+    @Column(length = 100)
+    private String salario;
 
-        @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @Column(length = 100, nullable = false)
+    private String area;
 
-        @JoinColumn(name = "empresa_id", nullable = false,
+    @Column(nullable = false)
+    private LocalDateTime dataCadastro;
 
-                foreignKey = @ForeignKey(name = "fk_vaga_empresa"))
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false)
+    private StatusVaga statusVaga;
 
-        private com.zeroum.estagios.model.entity.Empresa empresa;
-
-        @Column(length = 100, nullable = false)
-
-        private String nome;
-
-        @Column(length = 500, nullable = false)
-
-        private String descricao;
-
-        @Column(length = 100)
-
-        private String cidade;
-
-        @Column(length = 100)
-
-        private String bairro;
-
-        @Column(length = 100)
-
-        private String cargaHoraria;
-
-        @Column(length = 100)
-
-        private String salario;
-
-        @Column(length = 100, nullable = false)
-
-        private String area;
-
-        @Column(nullable = false)
-
-        private LocalDateTime dataCadastro;
-
-        @Enumerated(EnumType.STRING)
-
-        @Column(length = 20, nullable = false)
-
-        private StatusVaga statusVaga;
-
-        public Integer getId() { return id; }
-
-        public void setId(Integer id) { this.id = id; }
-
-        public com.zeroum.estagios.model.entity.Empresa getEmpresa() { return empresa; }
-
-        public void setEmpresa(com.zeroum.estagios.model.entity.Empresa empresa) { this.empresa = empresa; }
-
-        public String getNome() { return nome; }
-
-        public void setNome(String nome) { this.nome = nome; }
-
-        public String getDescricao() { return descricao; }
-
-        public void setDescricao(String descricao) { this.descricao = descricao; }
-
-        public String getCidade() { return cidade; }
-
-        public void setCidade(String cidade) { this.cidade = cidade; }
-
-        public String getBairro() { return bairro; }
-
-        public void setBairro(String bairro) { this.bairro = bairro; }
-
-        public String getCargaHoraria() { return cargaHoraria; }
-
-        public void setCargaHoraria(String cargaHoraria) { this.cargaHoraria = cargaHoraria; }
-
-        public String getSalario() { return salario; }
-
-        public void setSalario(String salario) { this.salario = salario; }
-
-        public String getArea() { return area; }
-
-        public void setArea(String area) { this.area = area; }
-
-        public LocalDateTime getDataCadastro() { return dataCadastro; }
-
-        public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
-
-        public <StatusVaga> StatusVaga getStatusVaga() {
-            StatusVaga StatusVaga = null;
-            return StatusVaga; }
-
-        public <StatusVaga> void setStatusVaga(StatusVaga statusVaga) {
-            StatusVaga StatusVaga = null;
-            this.statusVaga = StatusVaga; }
-
+    // Getters and Setters
+    public Integer getId() {
+        return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public void setCargaHoraria(String cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
+
+    public String getSalario() {
+        return salario;
+    }
+
+    public void setSalario(String salario) {
+        this.salario = salario;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public StatusVaga getStatusVaga() {
+        return statusVaga;
+    }
+
+    public void setStatusVaga(StatusVaga statusVaga) {
+        this.statusVaga = statusVaga;
+    }
 }
