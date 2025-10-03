@@ -1,4 +1,4 @@
-package com.itb.zeroumtcc.zeroum.model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity.enums;
 
 public enum StatusEmpresa {
 

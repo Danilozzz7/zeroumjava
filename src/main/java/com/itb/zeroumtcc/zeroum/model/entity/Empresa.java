@@ -1,4 +1,5 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
+import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusEmpresa;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 

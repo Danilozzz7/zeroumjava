@@ -1,7 +1,9 @@
-package com.zeroum.estagios.model.entity;
+package com.zeroum.model.entity;
 
-import com.zeroum.estagios.model.entity.enums.NivelAcesso;
-import com.zeroum.estagios.model.entity.enums.StatusUsuario;
+import com.itb.zeroumtcc.zeroum.model.entity.enums.NivelAcesso;
+import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusAluno;
+import com.zeroum.model.entity.enums.NivelAcesso;
+import com.zeroum.model.entity.enums.StatusAluno;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -38,7 +40,7 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private StatusUsuario statusUsuario; // ATIVO, INATIVO, TROCAR_SENHA
+    private StatusAluno statusUsuario; // ATIVO, INATIVO, TROCAR_SENHA
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -61,6 +63,6 @@ public class Usuario {
     public LocalDateTime getDataCadastro() { return dataCadastro; }
     public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
 
-    public StatusUsuario getStatusUsuario() { return statusUsuario; }
-    public void setStatusUsuario(StatusUsuario statusUsuario) { this.statusUsuario = statusUsuario; }
+    public StatusAluno getStatusUsuario() { return statusUsuario; }
+    public void setStatusUsuario(StatusAluno statusUsuario) { this.statusUsuario = statusUsuario; }
 }
