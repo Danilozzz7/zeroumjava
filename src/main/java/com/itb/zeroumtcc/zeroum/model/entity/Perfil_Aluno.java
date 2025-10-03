@@ -1,4 +1,4 @@
-package model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
 public class Perfil_Aluno {
     private Long id;

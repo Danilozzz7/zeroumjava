@@ -1,6 +1,4 @@
-package com.itb.zeroumtcc.zeroum.model.entity;
+package model.entity;
 
-public enum StatusCandidatura {
-    ATIVO,
-    INATIVO,
+public class StatusCandidatura {
 }
