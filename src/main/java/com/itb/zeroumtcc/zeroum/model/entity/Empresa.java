@@ -18,7 +18,7 @@ public class Empresa {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_empresa_usuario"))
-    private com.zeroum.estagios.model.entity.Usuario usuario;
+    private Usuario usuario;
 
     @Column(length = 100, nullable = false)
     private String nome;
@@ -51,8 +51,8 @@ public class Empresa {
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
-    public com.zeroum.estagios.model.entity.Usuario getUsuario() { return usuario; }
-    public void setUsuario(com.zeroum.estagios.model.entity.Usuario usuario) { this.usuario = usuario; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }

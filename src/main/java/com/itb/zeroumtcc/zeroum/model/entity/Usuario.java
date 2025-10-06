@@ -1,9 +1,7 @@
-package com.zeroum.model.entity;
+package com.itb.zeroumtcc.zeroum.model.entity;
 
 import com.itb.zeroumtcc.zeroum.model.entity.enums.NivelAcesso;
 import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusAluno;
-import com.zeroum.model.entity.enums.NivelAcesso;
-import com.zeroum.model.entity.enums.StatusAluno;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 

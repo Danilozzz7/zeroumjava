@@ -1,7 +1,8 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
+import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusVaga;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import com.zeroum.estagios.model.entity.enums.StatusVaga;
+
 
 @Entity
 @Table(name = "Vaga")

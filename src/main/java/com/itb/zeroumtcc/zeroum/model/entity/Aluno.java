@@ -1,7 +1,9 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
+
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "Aluno",
@@ -18,7 +20,7 @@ public class Aluno<StatusAluno> {
         @ManyToOne(optional = false, fetch = FetchType.LAZY)
         @JoinColumn(name = "usuario_id", nullable = false,
                 foreignKey = @ForeignKey(name = "fk_aluno_usuario"))
-        private com.zeroum.estagios.model.entity.Usuario usuario;
+        private Usuario usuario;
 
         @Column(length = 100, nullable = false)
         private String nome;
@@ -49,8 +51,8 @@ public class Aluno<StatusAluno> {
         public Integer getId() { return id; }
         public void setId(Integer id) { this.id = id; }
 
-        public com.zeroum.estagios.model.entity.Usuario getUsuario() { return usuario; }
-        public void setUsuario(com.zeroum.estagios.model.entity.Usuario usuario) { this.usuario = usuario; }
+        public Usuario getUsuario() { return usuario; }  // Alterado para usar o tipo correto
+        public void setUsuario(Usuario usuario) { this.usuario = usuario; }  // Alterado para usar o tipo correto
 
         public String getNome() { return nome; }
         public void setNome(String nome) { this.nome = nome; }
@@ -74,4 +76,5 @@ public class Aluno<StatusAluno> {
         public void setDataCadastro(LocalDateTime dataCadastro) { this.dataCadastro = dataCadastro; }
 
         public StatusAluno getStatusAluno() { return statusAluno; }
+        public void setStatusAluno(StatusAluno statusAluno) { this.statusAluno = statusAluno; }
 }

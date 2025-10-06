@@ -1,6 +1,7 @@
 package com.itb.zeroumtcc.zeroum.controller;
+import com.itb.zeroumtcc.zeroum.model.entity.Usuario;
 import com.itb.zeroumtcc.zeroum.model.repository.UsuarioRepository;
-import com.zeroum.estagios.model.entity.Usuario;
+
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

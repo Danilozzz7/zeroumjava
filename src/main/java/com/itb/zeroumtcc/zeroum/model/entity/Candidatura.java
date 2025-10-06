@@ -1,8 +1,8 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
 
+import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusCandidatura;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import com.itb.zeroumtcc.zeroum.model.entity.enums.StatusCandidatura;
 
 @Entity
 @Table(name = "Candidatura")
@@ -28,6 +28,7 @@ public class Candidatura {
     @Enumerated(EnumType.STRING)
     @Column(name = "status_candidatura", length = 20, nullable = false)
     private StatusCandidatura statusCandidatura;
+    private Object StatusCandidatura;
 
     // Getters and Setters
     public Integer getId() {
@@ -67,6 +68,6 @@ public class Candidatura {
     }
 
     public <StatusCandidatura> void setStatusCandidatura(StatusCandidatura statusCandidatura) {
-        this.statusCandidatura = statusCandidatura;
+        this.StatusCandidatura = StatusCandidatura;
     }
 }

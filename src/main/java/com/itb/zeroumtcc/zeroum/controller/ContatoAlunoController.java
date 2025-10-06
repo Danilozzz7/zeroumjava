@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -37,13 +38,22 @@ public class ContatoAlunoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ContatoAluno> update(@PathVariable Integer id, @Valid @RequestBody ContatoAluno contato) {
-        return repo.findById(id)
+    public ResponseEntity<Object> update(@PathVariable Integer id, @Valid @RequestBody ContatoAluno contato) {
+        /*return repo.findById(id)
                 .map(existing -> {
-                    contato.setId(existing.getId());
+                    contato.setId(existing.getId(id));
                     return ResponseEntity.ok(repo.save(contato));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+
+
+         */
+            ContatoAluno contatoAlunoBd = (ContatoAluno) repo.findById(id).get();
+            contatoAlunoBd.setNomeContato(contato.getNomeContato());
+            contatoAlunoBd.setAluno(contato.getAluno());
+            contatoAlunoBd.setLink(contato.getLink());
+            return ResponseEntity.ok(repo.save(contatoAlunoBd));
+
     }
 
     @DeleteMapping("/{id}")
