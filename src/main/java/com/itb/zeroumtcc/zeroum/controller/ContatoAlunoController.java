@@ -2,7 +2,7 @@ package com.itb.zeroumtcc.zeroum.controller;
 
 import com.itb.zeroumtcc.zeroum.model.entity.ContatoAluno;
 import com.itb.zeroumtcc.zeroum.model.repository.ContatoAlunoRepository;
-import jakarta.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -32,13 +32,13 @@ public class ContatoAlunoController {
     }
 
     @PostMapping
-    public ResponseEntity<ContatoAluno> create(@Valid @RequestBody ContatoAluno contato) {
+    public ResponseEntity<ContatoAluno> create( @RequestBody ContatoAluno contato) {
         ContatoAluno saved = (ContatoAluno) repo.save(contato);
         return ResponseEntity.created(URI.create("/api/v1/contatos-aluno/" + saved.getId())).body(saved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Integer id, @Valid @RequestBody ContatoAluno contato) {
+    public ResponseEntity<Object> update(@PathVariable Integer id, @RequestBody ContatoAluno contato) {
         /*return repo.findById(id)
                 .map(existing -> {
                     contato.setId(existing.getId(id));

@@ -2,7 +2,6 @@ package com.itb.zeroumtcc.zeroum.controller;
 
 import com.itb.zeroumtcc.zeroum.model.entity.Empresa;
 import com.itb.zeroumtcc.zeroum.model.repository.EmpresaRepository; // Assumindo que exista
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -32,13 +31,13 @@ public class EmpresaController {
     }
 
     @PostMapping
-    public ResponseEntity<Empresa> create(@Valid @RequestBody Empresa empresa) {
+    public ResponseEntity<Empresa> create(@RequestBody Empresa empresa) {
         Empresa saved = repo.save(empresa);
         return ResponseEntity.created(URI.create("/api/v1/empresas/" + saved.getId())).body(saved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Empresa> update(@PathVariable Integer id, @Valid @RequestBody Empresa empresa) {
+    public ResponseEntity<Empresa> update(@PathVariable Integer id, @RequestBody Empresa empresa) {
         return repo.findById(id)
                 .map(existing -> {
                     empresa.setId(existing.getId());

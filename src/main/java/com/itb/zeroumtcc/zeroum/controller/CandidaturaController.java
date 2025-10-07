@@ -2,7 +2,6 @@ package com.itb.zeroumtcc.zeroum.controller;
 import com.itb.zeroumtcc.zeroum.model.entity.Candidatura;
 import com.itb.zeroumtcc.zeroum.model.entity.ContatoAluno;
 import com.itb.zeroumtcc.zeroum.model.repository.CandidaturaRepository;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,14 +35,14 @@ public class CandidaturaController {
 
     // Método para criar uma nova candidatura
     @PostMapping
-    public ResponseEntity<Candidatura> create(@Valid @RequestBody Candidatura candidatura) {
+    public ResponseEntity<Candidatura> create(@RequestBody Candidatura candidatura) {
         Candidatura saved = (Candidatura) repo.save(candidatura); // Removido o cast
         return ResponseEntity.created(URI.create("/api/v1/candidaturas/" + saved.getId())).body(saved);
     }
 
     // Método para atualizar uma candidatura existente
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Integer id, @Valid @RequestBody Candidatura candidatura) {
+    public ResponseEntity<Object> update(@PathVariable Integer id,@RequestBody Candidatura candidatura) {
         /*return repo.findById(id)
                 .map(existing -> {
                     candidatura.setId(existing.getId());

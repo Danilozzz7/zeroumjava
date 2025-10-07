@@ -2,7 +2,6 @@ package com.itb.zeroumtcc.zeroum.controller;
 
 import com.itb.zeroumtcc.zeroum.model.entity.Vaga;
 import com.itb.zeroumtcc.zeroum.model.repository.VagaRepository;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +31,13 @@ public class VagaController {
     }
 
     @PostMapping
-    public ResponseEntity<Vaga> create(@Valid @RequestBody Vaga vaga) {
+    public ResponseEntity<Vaga> create(@RequestBody Vaga vaga) {
         Vaga saved = repo.save(vaga);
         return ResponseEntity.created(URI.create("/api/v1/vagas/" + saved.getId())).body(saved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Vaga> update(@PathVariable Integer id, @Valid @RequestBody Vaga vaga) {
+    public ResponseEntity<Vaga> update(@PathVariable Integer id, @RequestBody Vaga vaga) {
         return repo.findById(id)
                 .map(existing -> {
                     vaga.setId(existing.getId());

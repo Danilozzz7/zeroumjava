@@ -1,8 +1,6 @@
 package com.itb.zeroumtcc.zeroum.controller;
 import com.itb.zeroumtcc.zeroum.model.entity.Usuario;
 import com.itb.zeroumtcc.zeroum.model.repository.UsuarioRepository;
-
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +30,13 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> create(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
         Usuario saved = repo.save(usuario);
         return ResponseEntity.created(URI.create("/api/v1/usuarios/" + saved.getId())).body(saved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> update(@PathVariable Integer id, @Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> update(@PathVariable Integer id, @RequestBody Usuario usuario) {
         return repo.findById(id)
                 .map(existing -> {
                     usuario.setId(existing.getId());

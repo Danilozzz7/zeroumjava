@@ -1,15 +1,9 @@
-package com.zeroum.estagios;
+package com.itb.zeroumtcc.zeroum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Plataforma de Estágios ZeroUm
- * Projeto de TCC desenvolvido por Danilo
- *
- * Esta é a classe principal que inicia a aplicação Spring Boot.
- * Certifique-se de que todos os pacotes estejam dentro de com.zeroum.estagios
- */
+
 @SpringBootApplication
 public class ZeroUmApplication {
 
