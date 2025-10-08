@@ -1,10 +1,31 @@
 package com.itb.zeroumtcc.zeroum.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Cadastro")
 public class Cadastro {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
     private Long rm;
-    private double nome;
+    
+    @Column(nullable = false)
+    private String nome;
+    
+    @Column(nullable = false)
     private String senha;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getRm() {
         return rm;
@@ -14,11 +35,11 @@ public class Cadastro {
         this.rm = rm;
     }
 
-    public double getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(double nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 

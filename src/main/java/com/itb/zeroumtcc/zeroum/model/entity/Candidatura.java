@@ -28,7 +28,6 @@ public class Candidatura {
     @Enumerated(EnumType.STRING)
     @Column(name = "status_candidatura", length = 20, nullable = false)
     private StatusCandidatura statusCandidatura;
-    private Object StatusCandidatura;
 
     // Getters and Setters
     public Integer getId() {
@@ -67,7 +66,7 @@ public class Candidatura {
         return statusCandidatura;
     }
 
-    public <StatusCandidatura> void setStatusCandidatura(StatusCandidatura statusCandidatura) {
-        this.StatusCandidatura = StatusCandidatura;
+    public void setStatusCandidatura(StatusCandidatura statusCandidatura) {
+        this.statusCandidatura = statusCandidatura;
     }
 }
